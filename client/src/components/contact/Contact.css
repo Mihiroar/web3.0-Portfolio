@@ -1,0 +1,68 @@
+/* Contact.css */
+.contact-section {
+  text-align: center;
+  padding: 20px;
+  color: white;
+  background-color: var(--color-bg); /* Adding background color */
+}
+
+.title {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.downloadBTN, /* Styling for the download button */
+button[type="submit"] { /* Styling for the submit button */
+  background-color: var(--color-blue);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.downloadBTN:hover, /* Hover effect for download button */
+button[type="submit"]:hover { /* Hover effect for submit button */
+  background-color: #0056b3;
+}
+
+.contact-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+textarea {
+  height: 150px;
+}
+
+/* Optional: Add additional styling to highlight required fields */
+input:required,
+textarea:required {
+  border-color: #ff0000;
+}
+
+input:required:focus,
+textarea:required:focus {
+  outline-color: #ff0000;
+}
