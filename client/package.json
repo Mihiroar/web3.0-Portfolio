@@ -16,11 +16,13 @@
     "@testing-library/user-event": "^13.5.0",
     "bootstrap": "^5.3.0",
     "emailjs-com": "^3.2.0",
+    "framer-motion": "^10.16.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
     "react-scripts": "5.0.1",
     "reactstrap": "^9.2.0",
+    "three": "^0.158.0",
     "web-vitals": "^2.1.4",
     "web3": "^1.9.0"
   },

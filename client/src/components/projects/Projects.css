@@ -1,3 +1,5 @@
+/* Projects.css */
+
 .project-section {
     color: white;
     width: 100%;
@@ -7,7 +9,6 @@
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    /* gap: ; */
 }
 
 .project-section .title {
@@ -17,6 +18,12 @@
     border-bottom-style: solid;
     border-bottom-width: 2px;
     width: fit-content;
+    transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.project-section .title:hover {
+    border-color: #007bff;
+    color: #7FFFD4;
 }
 
 /* =========card========== */
@@ -29,19 +36,19 @@
     align-items: center;
     justify-content: center;
     border-radius: 10px;
-    transition: 400ms;
+    transition: transform 0.3s ease, color 0.3s ease;
 }
+
 .project-card:hover {
     transform: scale(1.06);
     color: white;
 }
 
-.project-card .card-img  {
+.project-card .card-img {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
 }
 
 .project-card .card-img img {
@@ -49,9 +56,14 @@
     border-radius: 8px;
     width: 274px;
     height: 274px;
-
+    transition: transform 0.3s ease;
 }
-.card-wrapper a{
+
+.project-card:hover .card-img img {
+    transform: scale(1.1);
+}
+
+.card-wrapper a {
     text-decoration: none;
     color: white;
 }
@@ -67,7 +79,6 @@
     font-weight: 300;
     text-align: center;
     opacity: 0.8;
-
 }
 
 .project-section .card-wrapper {
@@ -77,7 +88,7 @@
     gap: 70px;
 }
 
-.project-section .donate{
+.project-section .donate {
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
@@ -85,15 +96,22 @@
     border-radius: 20px;
     border: 1px solid var(--color-blue);
     opacity: 0.9;
-}
-.donate:hover{
-background-color:var(--color-blue);
+    transition: background-color 0.3s ease;
 }
 
-.project-section .icon{
+.donate:hover {
+    background-color: var(--color-blue);
+}
+
+.project-section .icon {
     width: 18px;
     height: 18px;
-   margin-left: 8px;
+    margin-left: 8px;
+    transition: transform 0.3s ease;
+}
+
+.donate:hover .icon {
+    transform: scale(1.2);
 }
 
 /* =========media querries========== */
@@ -103,8 +121,10 @@ background-color:var(--color-blue);
         height: 100%;
         gap: 70px;
     }
+
     .project-section .title {
         font-size: 24px;
+        animation: titleAnimation 0.5s ease infinite;
     }
 
     /* =========card========== */
@@ -113,15 +133,15 @@ background-color:var(--color-blue);
         gap: 34px;
         margin-bottom: 20px;
     }
+
     /* eth */
-    .project-section .donate{
+    .project-section .donate {
         font-size: 14px;
         font-weight: 400;
         margin-bottom: 60px;
     }
-    
-    
-    .project-section .icon{
+
+    .project-section .icon {
         width: 16px;
         height: 16px;
     }

@@ -1,9 +1,154 @@
-/* Contact.css */
+/* Complete CSS Code */
+
+:root {
+  --bg-color: #0c0c0c;
+  --primary-color: #0d0d0d;
+  --secondary-color: #fff;
+  --text-color: #fff;
+  --text-color-2: #fff;
+  --overlay-color: rgb(12 12 12 / 63%);
+  --color-bg: #0c0c0c; /* Added color for background in the contact section */
+  --color-blue: #1d5c83;
+  --color-aquamarine: #7FFFD4; /* Added color for blue buttons */
+}
+
+[data-theme="light"] {
+  --bg-color: #ffffff;
+  --primary-color: #ffffff;
+  --secondary-color: #000;
+  --text-color: #000;
+  --text-color-2: #000;
+  --overlay-color: rgb(255 255 255 / 70%);
+  --color-bg: #ffffff; /* Adjusted color for background in light mode */
+  --color-blue: #1d5c83; /* Adjusted color for blue buttons in light mode */
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: visible;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Raleway', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-top: 0px;
+  border-left: 10px solid var(--primary-color);
+  border-right: 10px solid var(--primary-color);
+}
+
+ul {
+  list-style: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Marcellus;
+}
+
+a,
+a:hover {
+  color: var(--text-color);
+}
+
+p {
+  word-break: break-word;
+  hyphens: auto;
+}
+
+.ovhidden {
+  overflow: hidden;
+}
+
+.text_2,
+.text_2:hover {
+  color: var(--text-color-2);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.cursor__dot div {
+  z-index: 999999 !important;
+}
+
+.cursor__dot div:last-child {
+  filter: invert(1);
+  background-color: var(--primary-color) !important;
+}
+
+.cursor__dot div:first-child {
+  filter: invert(1);
+  background-color: var(--overlay-color) !important;
+}
+
+.color_pr {
+  color: var(--primary-color) !important;
+}
+
+.color_sec {
+  color: var(--secondary-color);
+}
+
+.contact__form .form-control {
+  padding: 1.375rem .75rem;
+  line-height: 1.5;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  border-radius: 0 !important;
+  border: 1px solid var(--secondary-color);
+}
+
+.contact__form input.form-control {
+  margin-bottom: 2em;
+  height: calc(2.5em + .75rem + 2px);
+}
+
+.loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  z-index: 999999999;
+  background: var(--text-color);
+  transform: translateX(100%);
+  animation: shift-rightwards 1s ease-in-out infinite;
+  animation-delay: .3s;
+}
+
+@keyframes shift-rightwards {
+  0% {
+      transform: translateX(-100%);
+  }
+  40% {
+      transform: translateX(0%);
+  }
+  60% {
+      transform: translateX(0%);
+  }
+  100% {
+      transform: translateX(100%);
+  }
+}
+
+.btn {
+  color: #fff;
+}
+
+/* Rest of the styles for the "Contact.css" file */
+
 .contact-section {
   text-align: center;
   padding: 20px;
-  color: white;
-  background-color: var(--color-bg); /* Adding background color */
+  color: var(--text-color);
+  background-color: var(--color-bg);
 }
 
 .title {
@@ -11,21 +156,27 @@
   margin-bottom: 20px;
 }
 
-.downloadBTN, /* Styling for the download button */
-button[type="submit"] { /* Styling for the submit button */
+.downloadBTN,
+button[type="submit"] {
   background-color: var(--color-blue);
-  color: #fff;
-  border: none;
+  color: white;
+  border: 2px solid #fff;
   padding: 10px 20px;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 10px;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.downloadBTN:hover, /* Hover effect for download button */
-button[type="submit"]:hover { /* Hover effect for submit button */
-  background-color: #0056b3;
+.downloadBTN:hover,
+button[type="submit"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.downloadBTN:hover {
+  background-color: #1d5c83;
 }
 
 .contact-form {
@@ -43,13 +194,22 @@ label {
   font-weight: bold;
 }
 
+.input-container {
+  text-align: center; /* Center the text boxes within the container */
+  margin-bottom: 15px; /* Add margin between label and input */
+}
+
 input[type="text"],
 input[type="email"],
 textarea {
-  width: 100%;
+  width: 60%; /* Set the width to your preferred medium size, e.g., 60% */
   padding: 10px;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 10px;
+  box-sizing: border-box; /* Include padding and border in the element's total width */
+  display: block; /* Ensure inputs are displayed as block elements */
+  margin-top: 5px auto; /* Add space between label and input */
+  margin: auto;
 }
 
 textarea {
@@ -60,6 +220,7 @@ textarea {
 input:required,
 textarea:required {
   border-color: #ff0000;
+  margin: auto;
 }
 
 input:required:focus,

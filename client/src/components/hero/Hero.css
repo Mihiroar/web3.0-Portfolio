@@ -15,7 +15,7 @@
     align-items: center;
 }
 
-.container {
+.container1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -24,7 +24,7 @@
 
 /* =========hero img========== */
 
-.hero-img .img-container img {
+.hero-img .img-container1 img {
 
     width: 250px;
     height: auto;
@@ -50,8 +50,8 @@
 }
 
 .hero-text p div {
-    color: var(--color-blue);
-    font-size: 20px;
+    color: aqua;
+    font-size: 50px;
     font-weight: 700;
 
 }
@@ -121,7 +121,7 @@
         height: auto;
     }
 
-    .container {
+    .container1 {
         flex-direction: column-reverse !important;
         justify-content: center;
         gap: 20px !important;
@@ -132,7 +132,7 @@
 
     }
 
-    .hero-img .img-container img {
+    .hero-img .img-container1 img {
         width: 300px;
         margin-top: 40px;
     }

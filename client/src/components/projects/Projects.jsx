@@ -1,5 +1,7 @@
+// Projects.jsx
+
 import React, { useEffect, useState } from 'react';
-import { FaDonate } from 'react-icons/fa';
+import { FaDonate, FaEthereum } from 'react-icons/fa';
 import { Modal, ModalHeader, ModalBody, Row, Button } from 'reactstrap';
 import './Projects.css';
 
@@ -28,15 +30,15 @@ const Projects = ({ state }) => {
       const weiValue = web3.utils.toWei(eth, "ether");
       const accounts = await web3.eth.getAccounts();
       await contract.methods.donate().send({ from: accounts[0], value: weiValue, gas: 480000 });
-      alert("Transaction Successful");
+      alert("Transaction Successful :)))");
     } catch (error) {
-      alert("Transaction Not Successful");
+      alert("Transaction Not Successful :(((");
     }
   };
 
   return (
     <section className="project-section">
-      <h1 className="title">Projects</h1>
+      <h1 className="title">My Projects.</h1>
       <div className="card-wrapper">
         {projects !== "" &&
           projects.map((project) => {
@@ -57,7 +59,7 @@ const Projects = ({ state }) => {
 
       {/* =========popup bootstrap========== */}
       <Modal size="md" isOpen={modal} toggle={() => setModal(!modal)}>
-        <ModalHeader toggle={() => setModal(!modal)}>Enter the ETH you want to donate!</ModalHeader>
+        <ModalHeader toggle={() => setModal(!modal)}>Enter the ETHs you want to donate!</ModalHeader>
         <ModalBody>
           <form onSubmit={donateEth}>
             <Row>
@@ -69,7 +71,7 @@ const Projects = ({ state }) => {
       </Modal>
       {/* =========popup bootstrap end========== */}
       <p className="donate" onClick={() => setModal(true)}>
-        Liked the projects? Consider donating ETH <FaDonate className="icon" />
+        Stunned with the projects!? Consider donating ETH <FaEthereum className="icon" />
       </p>
     </section>
   );

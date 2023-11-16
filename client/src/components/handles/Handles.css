@@ -1,33 +1,57 @@
 .socials {
     background-color: var(--color-bg);
-
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 150px;
+    gap: 150px; /* Maintain the previous gap size for larger screens */
     border-top: 1px var(--color-blue) solid;
     border-bottom: 1px var(--color-blue) solid;
-}
-
-.socials .icon {
+  }
+  
+  .socials a {
+    text-decoration: none; /* Remove underline from anchor tags */
+  }
+  
+  .socials .icon {
     color: var(--color-blue);
-    margin: 20px 0 20px 0;
+    margin: 20px 0; /* Maintain the previous top and bottom margins */
     height: 60px;
     width: 60px;
-}
-
-/* =========media querries========== */
-@media screen and (max-width: 420px) {
+    transition: color 0.3s ease; /* Added a smooth transition effect */
+  }
+  
+  .socials .icon:hover {
+    color: var(--color-hover); /* Added a color change on hover */
+  }
+  
+  /* Add specific styles for each icon class */
+  .socials .icon.linkedin {
+    /* Add styles specific to the LinkedIn icon */
+  }
+  
+  .socials .icon.twitter {
+    /* Add styles specific to the Twitter icon */
+  }
+  
+  .socials .icon.github {
+    /* Add styles specific to the GitHub icon */
+  }
+  
+  .socials .icon.instagram {
+    /* Add styles specific to the Instagram icon */
+  }
+  
+  /* Media queries for smaller screens */
+  @media screen and (max-width: 420px) {
     .socials {
-        gap: 20px;
-
+      gap: 20px; /* Maintain the previous gap size for smaller screens */
     }
-
+  
     .socials .icon {
-        color: var(--color-blue);
-        margin: 12px 0 12px 0;
-        height: 40px;
-        width: 40px;
+      margin: 12px 0; /* Maintain the previous top and bottom margins for smaller screens */
+      height: 40px;
+      width: 40px;
     }
-}
+  }
+  

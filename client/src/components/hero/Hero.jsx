@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Typed from 'react-typed'; // Import the react-typed library
 import { Modal, ModalBody, Row } from 'reactstrap';
-import heroImg from '../../assets/hero-img.png';
 import './Hero.css';
 
 const Hero = ({ state }) => {
@@ -29,19 +28,19 @@ const Hero = ({ state }) => {
 
   return (
     <section className="hero">
-      <div className="container">
+      <div className="container1">
         <div className="hero-text">
-          <span>Hey, this is</span>
+          <span>Hey there, this is</span>
           <p>
-            <div>Mihir </div>A Full-Stack Blockchain Developer From India.
+            <div>Mihir. </div>A Full-Stack Blockchain Developer From India.
           </p>
           <h1>
-            I Develop decentralized apps in web3 space and also a{' '}
+            I Develop Decentralized apps in web3 space and also a {'self taught '}
             {/* Replace with Typed component */}
             <Typed
-              strings={['Web Developer', 'BlockChain Developer', 'UI/UX Designer', 'Ethical Hacker']}
-              typeSpeed={80}
-              backSpeed={80}
+              strings={['Software Developer.', 'Web Developer.', 'UI/UX Designer.', 'Ethical Hacker.',]}
+              typeSpeed={50}
+              backSpeed={10}
               loop
               className='typed-text'
             />
@@ -64,7 +63,7 @@ const Hero = ({ state }) => {
           {/* =========popup bootstrap end========== */}
         </div>
         <div className="hero-img">
-          <div className="img-container">
+          <div className="img-container1">
             <img src={`https://gateway.pinata.cloud/ipfs/${cid}`} alt="profilePhoto" />
           </div>
         </div>

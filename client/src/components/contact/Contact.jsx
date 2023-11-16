@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import emailjs from "emailjs-com"; // Correct import for emailjs library
+import emailjs from "emailjs-com";
+import { motion } from "framer-motion";
 import './Contact.css';
 
 const Contact = ({ state }) => {
@@ -13,19 +14,15 @@ const Contact = ({ state }) => {
         contract && resumeDetails();
     }, [state]);
 
-    // State to manage the form fields
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         message: ""
     });
 
-    // Function to handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Perform any actions you want with the form data here
         console.log(formData);
-        // Send email using emailjs library
         emailjs
             .send(
                 'service_cbg9k4g',
@@ -42,7 +39,6 @@ const Contact = ({ state }) => {
             .then(
                 () => {
                     alert("Thank you. I will get back to you as soon as possible.");
-                    // Clear the form after successful submission
                     setFormData({
                         name: "",
                         email: "",
@@ -56,7 +52,6 @@ const Contact = ({ state }) => {
             );
     };
 
-    // Function to handle form field changes
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -66,22 +61,36 @@ const Contact = ({ state }) => {
     };
 
     return (
-        <section className="contact-section">
-            <h1 className="title">
-                Still Alive?
-                Dosti ka haath badhana ho toh fill the below form 🗿!
-            </h1>
+        <motion.section
+            className="contact-section"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+        >
             <a href={resume} target='_blank' rel="noopener noreferrer">
-                <button className="downloadBTN">
-                    View Resume
-                </button>
+                <motion.button
+                    className="downloadBTN"
+                    whileHover={{ scale: 1.05, boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }}
+                >
+                    View Resume :)
+                </motion.button>
             </a>
+            <p>
+                <br />
+                <motion.h1
+                    className="title"
+                    whileHover={{ scale: 1.05, color: "#007bff" }}
+                >
+                    Still Alive?
+                    Dosti ka haath badhana ho toh fill the below form 🗿!
+                </motion.h1>
+            </p>
+            <br />
 
-            {/* Contact Form */}
-            <form onSubmit={handleSubmit} className="contact-form">
+            <form onSubmit={handleSubmit} className="contact__form">
                 <div className="form-group">
-                    <label htmlFor="name">Name:</label>
-                    <input
+                    <label htmlFor="name">NAME:</label>
+                    <motion.input
                         type="text"
                         id="name"
                         placeholder="Enter Your Name"
@@ -89,11 +98,12 @@ const Contact = ({ state }) => {
                         value={formData.name}
                         onChange={handleChange}
                         required
+                        whileFocus={{ scale: 1.05, borderColor: "#007bff" }}
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="email">Email:</label>
-                    <input
+                    <label htmlFor="email">E-MAIL:</label>
+                    <motion.input
                         type="email"
                         placeholder="Mail Address"
                         id="email"
@@ -101,24 +111,31 @@ const Contact = ({ state }) => {
                         value={formData.email}
                         onChange={handleChange}
                         required
+                        whileFocus={{ scale: 1.05, borderColor: "#007bff" }}
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="message">Message:</label>
-                    <textarea
+                    <label htmlFor="message">MESSAGE:</label>
+                    <motion.textarea
                         id="message"
                         name="message"
                         placeholder="Enter Message"
                         value={formData.message}
                         onChange={handleChange}
                         required
+                        whileFocus={{ scale: 1.05, borderColor: "#007bff" }}
                     />
                 </div>
                 <div className="form-group">
-                    <button type="submit">Submit</button>
+                    <motion.button
+                        type="submit"
+                        whileHover={{ scale: 1.05, backgroundColor: "#007bff" }}
+                    >
+                        SUBMIT
+                    </motion.button>
                 </div>
             </form>
-        </section>
+        </motion.section>
     );
 }
 

@@ -1,6 +1,9 @@
+// Experience.jsx
+
 import React, { useState, useEffect } from "react";
-import './Experience.css'
-import { SlCalender } from "react-icons/sl"
+import './Experience.css';
+import { SlCalender } from "react-icons/sl";
+import { motion } from "framer-motion"; // Import motion from framer-motion
 
 const Experience = ({ state }) => {
     const [education, setEducation] = useState([]);
@@ -26,17 +29,36 @@ const Experience = ({ state }) => {
     }, [state]);
 
     return (
-        <section className="exp-section">
-            <h1 className="title">Experience & Education</h1>
+        <motion.section
+            className="exp-section"
+            initial={{ opacity: 0, y: -20 }} // Initial animation state
+            animate={{ opacity: 1, y: 0 }} // Animation on component mount
+            exit={{ opacity: 0, y: -20 }} // Animation on component unmount
+        >
+            <motion.h1
+                className="title"
+                whileHover={{ scale: 1.05, color: "#007bff" }} // Scale and color change on hover
+            >
+                Experience && Education.
+            </motion.h1>
 
-            <div className="container">
+            <motion.div
+                className="container2"
+                initial={{ opacity: 0, y: -20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+            >
 
                 {/* Education */}
                 <div className="education">
-                    <h1 className="edu-title">Education</h1>
+                    <h1 className="edu-title">Education.</h1>
                     {education.length > 0 ? (
                         education.map((edu, index) => (
-                            <div className="edu-card" key={index}>
+                            <motion.div
+                                className="edu-card"
+                                key={index}
+                                whileHover={{ scale: 1.05, boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }}
+                            >
                                 <p className="card-text1">
                                     <SlCalender className='icon' /> {edu.date}
                                 </p>
@@ -45,7 +67,7 @@ const Experience = ({ state }) => {
                                 <p className="card-text4">
                                     {edu.institutionName}
                                 </p>
-                            </div>
+                            </motion.div>
                         ))
                     ) : (
                         <p>No education details found.</p>
@@ -54,10 +76,14 @@ const Experience = ({ state }) => {
 
                 {/* Experience */}
                 <div className="experience">
-                    <h1 className="exp-title">Experience</h1>
+                    <h1 className="exp-title">Experience.</h1>
                     {experience.length > 0 ? (
                         experience.map((exp, index) => (
-                            <div className="exp-card" key={index}>
+                            <motion.div
+                                className="exp-card"
+                                key={index}
+                                whileHover={{ scale: 1.05, boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)" }}
+                            >
                                 <p className="card-text1">
                                     <SlCalender className='icon' /> {exp.date}
                                 </p>
@@ -66,15 +92,15 @@ const Experience = ({ state }) => {
                                 <p className="card-text4">
                                     {exp.companyName}
                                 </p>
-                            </div>
+                            </motion.div>
                         ))
                     ) : (
                         <p>No experience details found.</p>
                     )}
                 </div>
 
-            </div>
-        </section>
+            </motion.div>
+        </motion.section>
     )
 }
 
